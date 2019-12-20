@@ -11,12 +11,15 @@ Prerequisites:
 
 ### Running the project
 How to do the things:
+
 Change directory into project location [Where you host your local repos]
 - Clone repository ```git clone git@github.com:ChrismeanR/corewebcrawler.git```
+- Change directory into project location ```cd WebCrawler.CoreConsoleApp```
 - Build ```dotnet build```
 - Run ```dotnet run```
+- You'll see the output at this step.
 - Publish (if you want the executable directly)
--- ```dotnet publish ``` This will create an executable based on the users operating system.
+- ```dotnet publish ``` This will create an executable based on the users operating system.
 - Navigate to ```./bin/[configuration]/[framework]/[runtime]/publish/ ``` wherever you stored your local clone.
 
 
