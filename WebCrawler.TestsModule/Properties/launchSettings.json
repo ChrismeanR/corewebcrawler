@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WebCrawler.TestsModule": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

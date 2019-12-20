@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WebCrawler.CoreConsoleApp": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
