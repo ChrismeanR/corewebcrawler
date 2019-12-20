@@ -18,3 +18,11 @@ Change directory into project location
 
 ### Run the Tests
 Trigger test cases by:
+
+
+
+
+#### gotchas:
+- docker and case sensitivity
+- using .net core for, realistically, the third time
+- creating the solution improperly, so it could not be packaged into executable.
