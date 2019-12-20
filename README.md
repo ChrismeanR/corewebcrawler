@@ -41,6 +41,6 @@ In order to view this in action, the user will need VS Code or VS community edit
 - Docker on Windows, How to Docker with .NetCore non web projects
 - Using .net core for, realistically, the third time.
 - Used .Net Core since it is cross platform. 
-- Creating the solution improperly, so it could not be packaged into executable. View the original here: 
+- Creating the solution improperly, so it could not be packaged into executable. View the original here: ```https://github.com/ChrismeanR/WebCrawler```
 - Not knowing, with ease, how to publish up the test project for easy red/green test visibility.
 - Ran out of time perfecting the output, it's' not perfect, left todo's' commented in the code where I'd' like to change
