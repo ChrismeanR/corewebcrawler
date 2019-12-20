@@ -22,7 +22,7 @@ Change directory into project location [Where you host your local repos]
 
 ### Run the Tests
 Trigger test cases by:
-#### This I've been unalbe to get running via commands like the above steps. 
+#### This I've been unable to get running via commands like the above steps. 
 
 ## Not implemented:
 
