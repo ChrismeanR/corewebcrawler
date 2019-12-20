@@ -1,13 +1,12 @@
 ## Web crawler by Christine Romano
 
 ### Install instructions
-Prerequisites: 
+Prerequisites (Most are optional since it is a self contained executable):
+
 - Docker for Windows (or Mac)
 - Visual Studio Community or VS Code (2019 versions)
-- GitTools
+- GitTools (commandline, gui, basic knowledge of it)
 - .NET Core Sdks
-
-
 
 ### Running the project
 How to do the things:
@@ -25,16 +24,17 @@ Change directory into project location [Where you host your local repos]
 
 ### Run the Tests
 Trigger test cases by:
-#### This I've been unable to get running via commands like the above steps. 
+#### ^^ This I've been unable to get running via commands like the above steps. 
 
 ## Not implemented:
-
-
 #### Docker Implementation: In docker container:
 ```docker build WebCrawler.CoreConsoleApp```
 
-## gotchas:
-- docker and case sensitivity
-- using .net core for, realistically, the third time
-- creating the solution improperly, so it could not be packaged into executable.
+## Gotchas:
+- Docker and case sensitivity
+- Docker on Windows, How to Docker with .NetCore non web projects
+- Using .net core for, realistically, the third time.
+- Used .Net Core since it is cross platform. 
+- Creating the solution improperly, so it could not be packaged into executable. View the original here: 
 - Not knowing, with ease, how to publish up the test project for easy red/green test visibility.
+- Ran out of time perfecting the output, it's' not perfect, left todo's' commented in the code where I'd' like to change
