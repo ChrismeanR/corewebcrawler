@@ -7,9 +7,7 @@
 
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
 
-    <AssemblyName>WebCrawler.TestModule</AssemblyName>
-
-    <RootNamespace>WebCrawler.TestModules</RootNamespace>
+    <RootNamespace>WebCrawler.TestsModule</RootNamespace>
 
     <ApplicationIcon>gitprofilepic_Nxw_3.ico</ApplicationIcon>
   </PropertyGroup>

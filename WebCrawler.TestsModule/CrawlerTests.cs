@@ -4,7 +4,7 @@ using HtmlAgilityPack;
 using System.Collections.Generic;
 using WebCrawler.CoreConsoleApp;
 
-namespace WebCrawler.TestModule
+namespace WebCrawler.CoreConsoleApp.Tests
 {
     [TestClass()]
     public class CrawlerTests
