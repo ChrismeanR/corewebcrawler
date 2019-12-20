@@ -25,7 +25,11 @@ Change directory into project location [Where you host your local repos]
 
 ### Run the Tests
 Trigger test cases by:
-In order to view this in action, the user will need VS Code or VS community edition (both free). I am unsure how to run tests independently (see note below).
+In order to view this in action, the user will need VS Code or VS community edition (both free). I am unsure how to run tests independently via dotnet commands (see note below).
+- In IDE (VSCode or VS Community), open solution, select ```Test``` from the top toolbar/navigation
+- Choose ```Run All Tests```
+- Test explorer will run all the tests pointed back to the console app and Assert some of the methods in there. 
+
 #### ^^ This I've been unable to get running via commands like the above steps. 
 
 ## Not implemented:
