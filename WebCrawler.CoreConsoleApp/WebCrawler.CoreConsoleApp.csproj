@@ -5,11 +5,21 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <ApplicationIcon>gitprofilepic_Nxw_3.ico</ApplicationIcon>
+    <Authors>Christine Romano</Authors>
+    <PackageIcon>gitprofilepic_Nxw_3.ico</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.17" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Users\chris\Downloads\gitprofilepic_icons\gitprofilepic_Nxw_3.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

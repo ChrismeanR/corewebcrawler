@@ -1,10 +1,10 @@
-using WebCrawler.CoreConsoleApp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using HtmlAgilityPack;
 using System.Collections.Generic;
+using WebCrawler.CoreConsoleApp;
 
-namespace WebCrawler.TestsModule
+namespace WebCrawler.TestModule
 {
     [TestClass()]
     public class CrawlerTests
@@ -65,7 +65,7 @@ namespace WebCrawler.TestsModule
             Assert.IsNotNull(cssColReturn);
 
             //Assert this returns a List<List<DisplayModel>>
-            Assert.IsInstanceOfType(returnedList, typeof(List<List<CoreConsoleApp.Models.DisplayModel>>));
+            Assert.IsInstanceOfType(returnedList, typeof(List<List<WebCrawler.Models.DisplayModel>>));
         }
     }
 }

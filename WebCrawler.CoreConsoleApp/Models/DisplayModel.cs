@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WebCrawler.CoreConsoleApp.Models
+namespace WebCrawler.Models
 {
     public class DisplayModel
     {
