@@ -8,12 +8,19 @@ Prerequisites (Most are optional since it is a self contained executable):
 - GitTools (commandline, gui, basic knowledge of it)
 - .NET Core Sdks
 
-### Running the project
+#### If running program with docker-compose (Preferred method):
+Change directory into project location [Where you host your local repos]
+- Clone repository ```git clone git@github.com:ChrismeanR/corewebcrawler.git```
+- Change directory into project location ```cd corewebcrawler```
+- In your console, type ```docker-compose up``` and it will display the console app information.
+
+
+### Running the project (dotnetcore)
 How to do the things:
 
 Change directory into project location [Where you host your local repos]
 - Clone repository ```git clone git@github.com:ChrismeanR/corewebcrawler.git```
-- Change directory into project location ```cd WebCrawler.CoreConsoleApp```
+- Change directory into project location ```cd corewebcrawler\WebCrawler.CoreConsoleApp```
 - Build ```dotnet build```
 - Run ```dotnet run```
 - You'll see the output at this step.
