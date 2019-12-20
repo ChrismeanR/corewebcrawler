@@ -20,7 +20,7 @@ Change directory into project location [Where you host your local repos]
 - You'll see the output at this step.
 - Publish (if you want the executable directly)
 - ```dotnet publish ``` This will create an executable based on the users operating system.
-- Navigate to ```./bin/[configuration]/[framework]/[runtime]/publish/ ``` wherever you stored your local clone.
+- Navigate to ```./bin/[configuration]/[framework]/[runtime]/publish/ ``` relative wherever you stored your local clone.
 
 
 ### Run the Tests
