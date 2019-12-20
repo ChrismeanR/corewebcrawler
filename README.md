@@ -20,10 +20,12 @@ Change directory into project location [Where you host your local repos]
 - Publish (if you want the executable directly)
 - ```dotnet publish ``` This will create an executable based on the users operating system.
 - Navigate to ```./bin/[configuration]/[framework]/[runtime]/publish/ ``` relative wherever you stored your local clone.
+(example: ```~\bin\Debug\netcoreapp3.1\WebCrawler.CoreConsoleApp.exe```)
 
 
 ### Run the Tests
 Trigger test cases by:
+In order to view this in action, the user will need VS Code or VS community edition (both free). I am unsure how to run tests independently (see note below).
 #### ^^ This I've been unable to get running via commands like the above steps. 
 
 ## Not implemented:
