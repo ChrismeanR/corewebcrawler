@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  webcrawler.coreconsoleapp:
+    image: ${DOCKER_REGISTRY-}webcrawlercoreconsoleapp
+    build:
+      context: .
+      dockerfile: WebCrawler.CoreConsoleApp\Dockerfile
+
+  webcrawler.testsmodule:
+    image: ${DOCKER_REGISTRY-}webcrawlertestsmodule
+    build:
+      context: .
+      dockerfile: WebCrawler.TestsModule\Dockerfile
+
