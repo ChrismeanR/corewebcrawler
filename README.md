@@ -4,17 +4,18 @@
 Prerequisites ~~(Most are optional since it is a self contained executable)~~:
 > We''ll be running this in command line
 1. GitTools (commandline, gui, basic knowledge of it)
-2. **.NET Core Sdks** (UBuntu install: https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1904 )
-- Ubuntu (Only need to run this once): ```wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+2. **.NET Core Sdks** (UBuntu install instruction guide: https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1904 )
+- Ubuntu **(Only need to run this once)**: 
+```wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 ```
-- Ubuntu (Install .NET core SDK) 
+3. Ubuntu (Install .NET core SDK) 
 ```sudo apt-get update
 sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install dotnet-sdk-3.1 
 ```
--- Ubuntu: (Install .NET core Runtime) 
+- Ubuntu: (Install .NET core Runtime) 
 ```sudo apt-get update
 sudo apt-get install apt-transport-https
 sudo apt-get update
