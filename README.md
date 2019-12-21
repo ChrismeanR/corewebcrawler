@@ -1,19 +1,37 @@
 ## Web crawler by Christine Romano
 
 ### Install instructions
-Prerequisites (Most are optional since it is a self contained executable):
-
+Prerequisites ~~(Most are optional since it is a self contained executable)~~:
+> We''ll be running this in command line
+1. GitTools (commandline, gui, basic knowledge of it)
+2. **.NET Core Sdks** (UBuntu install instruction guide: https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1904 )
+- Ubuntu **(Only need to run this once)**: 
+```wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+```
+3. Ubuntu (Install .NET core SDK) 
+```sudo apt-get update
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install dotnet-sdk-3.1 
+```
+4. Ubuntu: (Install .NET core Runtime) 
+```sudo apt-get update
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install dotnet-runtime-3.1 
+```
+> (If running via docker compose) 
 - Docker for Windows (or Mac)
+> (If running code locally or running the test project) 
 - Visual Studio Community or VS Code (2019 versions)
-- GitTools (commandline, gui, basic knowledge of it)
-- .NET Core Sdks
 
-### Running the project
+### Running the project (dotnetcore)
 How to do the things:
 
 Change directory into project location [Where you host your local repos]
 - Clone repository ```git clone git@github.com:ChrismeanR/corewebcrawler.git```
-- Change directory into project location ```cd WebCrawler.CoreConsoleApp```
+- Change directory into project location ```cd corewebcrawler\WebCrawler.CoreConsoleApp```
 - Build ```dotnet build```
 - Run ```dotnet run```
 - You'll see the output at this step.
@@ -29,8 +47,18 @@ In order to view this in action, the user will need VS Code or VS community edit
 - In IDE (VSCode or VS Community), open solution, select ```Test``` from the top toolbar/navigation
 - Choose ```Run All Tests```
 - Test explorer will run all the tests pointed back to the console app and Assert some of the methods in there. 
-
 #### ^^ This I've been unable to get running via commands like the above steps. 
+
+
+## If running program with docker-compose (Requires Docker Desktop):
+*Find the correct install for your machine here: https://hub.docker.com/*
+
+Change directory into project location [Where you host your local repos]
+- Clone repository ```git clone git@github.com:ChrismeanR/corewebcrawler.git```
+- Change directory into project location ```cd corewebcrawler```
+- In your console, type ```docker-compose up``` and it will display the console app information.
+
+
 
 ## Not implemented:
 #### Docker Implementation: In docker container:
