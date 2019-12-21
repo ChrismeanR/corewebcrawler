@@ -22,9 +22,9 @@ sudo apt-get update
 sudo apt-get install dotnet-runtime-3.1 
 ```
 - (If running via docker compose) 
---Docker for Windows (or Mac)
+*- Docker for Windows (or Mac)
 - (If running code locally or running the test project) 
---Visual Studio Community or VS Code (2019 versions)
+*- Visual Studio Community or VS Code (2019 versions)
 
 ### Running the project (dotnetcore)
 How to do the things:
