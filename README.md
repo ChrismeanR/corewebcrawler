@@ -25,13 +25,6 @@ sudo apt-get install dotnet-runtime-3.1
 - Docker for Windows (or Mac)
 - Visual Studio Community or VS Code (2019 versions)
 
-#### If running program with docker-compose (Preferred method):
-Change directory into project location [Where you host your local repos]
-- Clone repository ```git clone git@github.com:ChrismeanR/corewebcrawler.git```
-- Change directory into project location ```cd corewebcrawler```
-- In your console, type ```docker-compose up``` and it will display the console app information.
-
-
 ### Running the project (dotnetcore)
 How to do the things:
 
@@ -53,8 +46,18 @@ In order to view this in action, the user will need VS Code or VS community edit
 - In IDE (VSCode or VS Community), open solution, select ```Test``` from the top toolbar/navigation
 - Choose ```Run All Tests```
 - Test explorer will run all the tests pointed back to the console app and Assert some of the methods in there. 
-
 #### ^^ This I've been unable to get running via commands like the above steps. 
+
+
+#### If running program with docker-compose (Requires Docker Desktop):
+*Find the correct install for your machine here: https://hub.docker.com/*
+
+Change directory into project location [Where you host your local repos]
+- Clone repository ```git clone git@github.com:ChrismeanR/corewebcrawler.git```
+- Change directory into project location ```cd corewebcrawler```
+- In your console, type ```docker-compose up``` and it will display the console app information.
+
+
 
 ## Not implemented:
 #### Docker Implementation: In docker container:
