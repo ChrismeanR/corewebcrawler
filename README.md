@@ -15,15 +15,15 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install dotnet-sdk-3.1 
 ```
-- Ubuntu: (Install .NET core Runtime) 
+4. Ubuntu: (Install .NET core Runtime) 
 ```sudo apt-get update
 sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install dotnet-runtime-3.1 
 ```
 
-- Docker for Windows (or Mac)
-- Visual Studio Community or VS Code (2019 versions)
+- (If running via docker compose) Docker for Windows (or Mac)
+- (If running code locally or running the test project) Visual Studio Community or VS Code (2019 versions)
 
 ### Running the project (dotnetcore)
 How to do the things:
@@ -49,7 +49,7 @@ In order to view this in action, the user will need VS Code or VS community edit
 #### ^^ This I've been unable to get running via commands like the above steps. 
 
 
-#### If running program with docker-compose (Requires Docker Desktop):
+## If running program with docker-compose (Requires Docker Desktop):
 *Find the correct install for your machine here: https://hub.docker.com/*
 
 Change directory into project location [Where you host your local repos]
