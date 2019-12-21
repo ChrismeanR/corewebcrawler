@@ -6,7 +6,7 @@ Prerequisites (Most are optional since it is a self contained executable):
 - Docker for Windows (or Mac)
 - Visual Studio Community or VS Code (2019 versions)
 - GitTools (commandline, gui, basic knowledge of it)
-- .NET Core Sdks
+- .NET Core Sdks (UBuntu install: https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1904 )
 
 #### If running program with docker-compose (Preferred method):
 Change directory into project location [Where you host your local repos]
