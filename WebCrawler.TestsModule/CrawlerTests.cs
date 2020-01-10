@@ -55,7 +55,8 @@ namespace WebCrawler.CoreConsoleApp.Tests
             //var linkColReturn = Program.GetNodeAttributesByTag(link, "href", "link");
             //var cssColReturn = Program.GetNodeAttributesByTag(cssLinks, "rel", "link");
 
-            var returnedList = Program.gobjPageOutput;
+            //var returnedList = Program.gobjPageOutput;
+            //Program.GetNodeAttributesByTag(web, doc, atagLinks));
 
             Assert.IsNotNull(web);
             Assert.IsNotNull(doc);
@@ -65,8 +66,10 @@ namespace WebCrawler.CoreConsoleApp.Tests
             //Assert.IsNotNull(cssColReturn);
 
             //Assert this returns a List<List<DisplayModel>>
-            Assert.IsInstanceOfType(returnedList, typeof(List<List<WebCrawler.Models.DisplayModel>>));
+            //Assert.IsInstanceOfType(returnedList, typeof(List<List<WebCrawler.Models.DisplayModel>>));
         }
+
+       
     }
 }
 

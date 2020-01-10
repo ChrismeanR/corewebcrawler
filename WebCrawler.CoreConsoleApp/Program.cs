@@ -9,8 +9,6 @@ namespace WebCrawler.CoreConsoleApp
     public abstract class Program
     {
         public static string gobjDomain = "connectforhealthco.com";
-        public static List<List<DisplayModel>> gobjPageOutput = new List<List<DisplayModel>>();
-        public static Dictionary<string, List<Uri>> gobjLinks = new Dictionary<string, List<Uri>>();
 
         public static void Main(string[] args)
         {
@@ -21,7 +19,6 @@ namespace WebCrawler.CoreConsoleApp
 
             // jump into method to search the site and do the heavy lifting
             BeginCrawl(builditBaseUrl);
-
         }
 
         public static void BeginCrawl(Uri builditBaseUrl)
@@ -34,23 +31,6 @@ namespace WebCrawler.CoreConsoleApp
             var atagLinks = doc.DocumentNode.SelectNodes("//a[@href]");
             
             GetNodeAttributesByTag(web, doc, atagLinks);
-
-
-            #region TODO: if more time, group these better and use this as the data context
-            //var colReturn = from x in pageColReturn
-            //                from y in contentColReturn
-            //                from z in cssColReturn
-            //                select new
-            //                {
-            //                    page = x.Select(x => x.PageUri),
-            //                    image = y.Select(y => y.PageUri),
-            //                    css = z.Select(z => z.PageUri),
-            //                };
-            //Console.WriteLine(colReturn); 
-
-            var itemsList = gobjPageOutput;
-
-            #endregion
         }
 
         /// <summary>
@@ -146,6 +126,5 @@ namespace WebCrawler.CoreConsoleApp
             }
             return childList;
         }
-
     }
 }
