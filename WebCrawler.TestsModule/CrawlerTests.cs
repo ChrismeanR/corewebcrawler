@@ -50,23 +50,26 @@ namespace WebCrawler.CoreConsoleApp.Tests
             var atagLinks = doc.DocumentNode.SelectNodes("//a[@href]");
 
             // run these through the function and add them to the global list
-            var pageColReturn = Program.GetNodeAttributesByTag(atagLinks, "href", "a");
-            var contentColReturn = Program.GetNodeAttributesByTag(images, "src", "img");
-            var linkColReturn = Program.GetNodeAttributesByTag(link, "href", "link");
-            var cssColReturn = Program.GetNodeAttributesByTag(cssLinks, "rel", "link");
+            //var pageColReturn = Program.GetNodeAttributesByTag(atagLinks, "href", "a");
+            //var contentColReturn = Program.GetNodeAttributesByTag(images, "src", "img");
+            //var linkColReturn = Program.GetNodeAttributesByTag(link, "href", "link");
+            //var cssColReturn = Program.GetNodeAttributesByTag(cssLinks, "rel", "link");
 
-            var returnedList = Program.gobjPageOutput;
+            //var returnedList = Program.gobjPageOutput;
+            //Program.GetNodeAttributesByTag(web, doc, atagLinks));
 
             Assert.IsNotNull(web);
             Assert.IsNotNull(doc);
-            Assert.IsNotNull(pageColReturn);
-            Assert.IsNotNull(contentColReturn);
-            Assert.IsNotNull(linkColReturn);
-            Assert.IsNotNull(cssColReturn);
+            //Assert.IsNotNull(pageColReturn);
+            //Assert.IsNotNull(contentColReturn);
+            //Assert.IsNotNull(linkColReturn);
+            //Assert.IsNotNull(cssColReturn);
 
             //Assert this returns a List<List<DisplayModel>>
-            Assert.IsInstanceOfType(returnedList, typeof(List<List<WebCrawler.Models.DisplayModel>>));
+            //Assert.IsInstanceOfType(returnedList, typeof(List<List<WebCrawler.Models.DisplayModel>>));
         }
+
+       
     }
 }
 

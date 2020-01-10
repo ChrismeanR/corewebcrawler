@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using WebCrawler.Models;
 using HtmlAgilityPack;
 
 namespace WebCrawler.CoreConsoleApp
@@ -9,8 +8,7 @@ namespace WebCrawler.CoreConsoleApp
     public abstract class Program
     {
         public static string gobjDomain = "connectforhealthco.com";
-        public static List<List<DisplayModel>> gobjPageOutput = new List<List<DisplayModel>>();
-        //protected static ListOfDisplay<DisplayModel> gobjPageOutput = new ListOfDisplay<DisplayModel>();
+
         public static void Main(string[] args)
         {
             Console.WriteLine("Start crawling");
@@ -20,7 +18,6 @@ namespace WebCrawler.CoreConsoleApp
 
             // jump into method to search the site and do the heavy lifting
             BeginCrawl(builditBaseUrl);
-
         }
 
         public static void BeginCrawl(Uri builditBaseUrl)
@@ -30,74 +27,103 @@ namespace WebCrawler.CoreConsoleApp
             var web = new HtmlWeb();
             var doc = web.Load(url);
 
-            // get all <link>
-            var link = doc.DocumentNode.SelectNodes("//link[@href]");
-            // get all <img> content 
-            var images = doc.DocumentNode.SelectNodes("//img[@src]");
-            var cssLinks = doc.DocumentNode.SelectNodes("//link[@rel]");
             var atagLinks = doc.DocumentNode.SelectNodes("//a[@href]");
+            
+            GetNodeAttributesByTag(web, doc, atagLinks);
+        }
 
-            // run these through the function and add them to the global list
-            var pageColReturn = GetNodeAttributesByTag(atagLinks, "href", "a");
-            var contentColReturn = GetNodeAttributesByTag(images, "src", "img");
-            var linkColReturn = GetNodeAttributesByTag(link, "href", "link");
-            var cssColReturn = GetNodeAttributesByTag(cssLinks, "rel", "link");
+        /// <summary>
+        /// Iterates over node collection (parent/child), outputs results to console. 
+        /// </summary>
+        /// <param name="parentWeb"></param>
+        /// <param name="parentDocument"></param>
+        /// <param name="nodes"></param>
+        public static void GetNodeAttributesByTag(HtmlWeb parentWeb, HtmlDocument parentDocument, HtmlNodeCollection nodes)
+        {
+            Uri validUri;
+            HtmlDocument document;
+            HtmlWeb websiteUrl = new HtmlWeb();
 
-            #region TODO: if more time, group these better and use this as the data context
-            //var colReturn = from x in pageColReturn
-            //                from y in contentColReturn
-            //                from z in cssColReturn
-            //                select new
-            //                {
-            //                    page = x.Select(x => x.PageUri),
-            //                    image = y.Select(y => y.PageUri),
-            //                    css = z.Select(z => z.PageUri),
-            //                };
-            //Console.WriteLine(colReturn); 
-            #endregion
+            List<Uri> linkList = new List<Uri>();
+            Dictionary<string, List<Uri>> outputUriList = new Dictionary<string, List<Uri>>();
 
-            var itemsList = gobjPageOutput;
-
-            // format this as a return by combining the above
-
-            foreach (var item in itemsList)
+            foreach (HtmlNode node in nodes)
             {
-                foreach (var detail in item)
+                var attribute = node.Attributes["href"];
+                if (attribute != null && node.OriginalName == "a")
                 {
-                    // TODO: if more time, get this hierarchy correct with relative urls & page content. It appends to the end currently
+                    validUri = ValidateUri(linkList, attribute);
 
-                    //if (detail.PageUri.Contains(gobjDomain))
-                    //{
-                    //    Console.WriteLine(detail.PageUri);
-                    //}
-                    //else
-                    //{
-                    Console.WriteLine(detail.PageUri);
-                    //}
+                    // iterate over the links found on the page(s)
+                    foreach (var link in linkList)
+                    {
+                        if (link != null && link.AbsoluteUri.Contains(gobjDomain))
+                        {
+                            document = websiteUrl.Load(link);
+
+                            var childPages = GetSubPages(websiteUrl, document.DocumentNode.SelectNodes("//a[@href]"), linkList);
+                            outputUriList.TryAdd(link.ToString(), childPages.ToList());
+                        }
+                        // iterate over the key/value pairs and output in a readable format to the console
+                        foreach (var item in outputUriList.Keys)
+                        {
+                            if (item != null)
+                            {
+                                Console.WriteLine($"{link}");
+                                foreach (var valueSet in outputUriList[item])
+                                {
+                                    if (valueSet != null)
+                                    {
+                                        Console.WriteLine($"\t {(valueSet?.AbsolutePath)}");
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        public static List<List<DisplayModel>> GetNodeAttributesByTag(HtmlNodeCollection colHtmlNode, string strAttribute, string tagType)
+        /// <summary>
+        /// Validate the URI structure via TryCreate. Out a valid Uri
+        /// </summary>
+        /// <param name="linkList"></param>
+        /// <param name="attribute"></param>
+        /// <returns></returns>
+        private static Uri ValidateUri(List<Uri> linkList, HtmlAttribute attribute)
         {
-            List<DisplayModel> display = new List<DisplayModel>();
+            Uri validUri;
+            // go through all 'a' tags, pull the url/href values
+            Uri.TryCreate(attribute.Value, UriKind.Absolute, out validUri);
+            // append those valid urls into the list
+            linkList.Add(validUri);
+            return validUri;
+        }
 
-            foreach (HtmlNode node in colHtmlNode)
+        /// <summary>
+        /// Returns Enumerated list of Uri. 
+        /// </summary>
+        /// <param name="websiteUrl"></param>
+        /// <param name="htmlNodeCollection"></param>
+        /// <param name="childlinkList"></param>
+        /// <returns></returns>
+        private static IEnumerable<Uri> GetSubPages(HtmlWeb websiteUrl, HtmlNodeCollection htmlNodeCollection, List<Uri> childlinkList)
+        {
+            Uri validUri;
+            List<Uri> childList = new List<Uri>(childlinkList);
+
+            if (htmlNodeCollection != null)
             {
-                HtmlAttribute attrHref = node.Attributes[strAttribute];
-
-                if (attrHref != null)
+                foreach (var node in htmlNodeCollection)
                 {
-                    if (attrHref != null && attrHref.Value.Contains(tagType))
+                    var attribute = node.Attributes["href"];
+                    if (attribute != null && node.OriginalName == "a")
                     {
-                        display.Add(new DisplayModel { PageUri = attrHref.Value, TagType = tagType, AttributeType = strAttribute, Node = node.NodeType.ToString() });
+                        validUri = ValidateUri(childList, attribute);
                     }
                 }
             }
-
-            gobjPageOutput.Add(display.OrderBy(y => y.PageUri).ThenBy(x => x.AttributeType).ThenBy(x => x.TagType).ToList());
-
-            return gobjPageOutput;
+            return childList;
         }
     }
 }
